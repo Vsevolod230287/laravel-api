@@ -14,72 +14,23 @@ class SportController extends Controller
      */
     public function index()
     {
-        //
+        $sports = Sport::all();
+
+        return response()->json([
+        'data' => $sports,
+        'success' => true,
+      ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
-    }
+        $data = $request->all();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Sport  $sport
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Sport $sport)
-    {
-        //
-    }
+        //tutte le operazioni di store;
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Sport  $sport
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Sport $sport)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Sport  $sport
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Sport $sport)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Sport  $sport
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Sport $sport)
-    {
-        //
+        return response()->json([
+        'message' => 'Sport saved correctly',
+        'success' => true,
+      ]);
     }
 }

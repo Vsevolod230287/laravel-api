@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('sports');
 });
+
+Auth::routes();
+
+Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')
+->group(function () {
+    Route::get('/profile', 'UserController@profile')->name('profile');
+    Route::get('/generate-token', 'UserController@generateToken')->name('generate-token');
+});
+
+Route::get('/home', 'HomeController@index')->name('home');
